@@ -1,0 +1,84 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   Google Cloud-flavored tokens
+   White canvas, Google blue, hairline borders, DM Sans (≈ Google Sans),
+   Roboto body, Roboto Mono for data.
+
+   Mirrors the token set used in pt-sizing-calculator so the two apps read
+   as one design system. Tailwind's theme (tailwind.config.js) maps onto
+   these variables, so this file is the single source of truth for color.
+   ───────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+:root {
+  /* ── Surfaces ── */
+  --surface:           #ffffff;
+  --surface-alt:       #f8f9fa;
+  --surface-elev:      #ffffff;
+  --surface-dark:      #202124;
+  --surface-tint:      #e8f0fe;   /* Google blue tint, very pale */
+
+  /* ── Brand palette ── */
+  --gc-blue:           #1a73e8;
+  --gc-blue-hover:     #1765cc;
+  --gc-blue-pressed:   #185abc;
+  --gc-blue-soft:      #d2e3fc;
+  --gc-blue-tint:      #e8f0fe;
+  --gc-red:            #ea4335;
+  --gc-red-tint:       #fce8e6;
+  --gc-yellow:         #fbbc04;
+  --gc-yellow-tint:    #fef7e0;
+  --gc-green:          #34a853;
+  --gc-green-tint:     #e6f4ea;
+  --gc-purple:         #9168c0;
+  --gc-purple-tint:    #f3e8fd;
+  --gc-teal:           #12b5cb;
+
+  /* ── Text ── */
+  --text-1:            #202124;   /* primary */
+  --text-2:            #3c4043;
+  --text-3:            #5f6368;   /* secondary / labels */
+  --text-4:            #80868b;   /* muted */
+  --text-on-blue:      #ffffff;
+
+  /* ── Borders ── */
+  --border-1:          #dadce0;   /* hairline (default) */
+  --border-2:          #e8eaed;   /* lighter */
+  --border-strong:     #bdc1c6;
+  --border-blue:       #1a73e8;
+
+  /* ── State ── */
+  --hover-bg:          rgba(60, 64, 67, 0.04);
+  --active-bg:         rgba(60, 64, 67, 0.08);
+  --focus-ring:        rgba(26, 115, 232, 0.4);
+
+  /* ── Type ── */
+  --font-display:      'DM Sans', 'Google Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-body:         'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:         'Roboto Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ── Radii (Google uses 4 / 8, plus pill) ── */
+  --r-xs:  2px;
+  --r-sm:  4px;
+  --r-md:  8px;
+  --r-lg:  12px;
+  --r-pill: 100px;
+
+  /* ── Elevation (Material-style) ── */
+  --shadow-1:  0 1px 2px 0 rgba(60, 64, 67, 0.30), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  --shadow-2:  0 1px 2px 0 rgba(60, 64, 67, 0.30), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+  --shadow-3:  0 4px 8px 3px rgba(60, 64, 67, 0.15), 0 1px 3px 0 rgba(60, 64, 67, 0.30);
+
+  /* ── Motion ── */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emph:     cubic-bezier(0.2, 0, 0, 1);
+
+  /* ── Layout ── */
+  --content-max:   1180px;
+  --gutter:        clamp(20px, 4vw, 40px);
+  --topbar-h:      64px;
+
+  /* ── Signature gradient (Gemini-style) ── */
+  --gemini-gradient: linear-gradient(135deg, #4796e3 0%, #9168c0 50%, #ff8b6b 100%);
+}
