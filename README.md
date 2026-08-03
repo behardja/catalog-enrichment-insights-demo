@@ -1,1 +1,1 @@
-# catalog-enrichment-insights-frontend
+# catalog-enrichment-insights-demo
