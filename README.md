@@ -1,4 +1,4 @@
-# Catalog Enrichment — Insights Demo
+# Catalog Enrichment & Insights Demo
 
 A vendor-neutral demo of AI-powered catalog enrichment on Google Cloud. Sparse
 supplier data goes in; a complete, structured, merchandisable product record
