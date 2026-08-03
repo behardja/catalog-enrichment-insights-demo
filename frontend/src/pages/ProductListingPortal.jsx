@@ -339,7 +339,7 @@ function ReviewPhase({ batchMode, onNavigate, onRestart }) {
       <PageHeading
         eyebrow="Stage 2 · Human-in-the-loop review"
         title={PRODUCT.title}
-        description="Every field below was generated from the supplier's inputs and is editable in place. Confidence scores mark what a merchandiser should look at first."
+        description="Every field below was generated from the supplier's inputs and is editable in place. Confidence scores marked"
         right={
           <div className="flex items-center gap-2">
             <Pill tone="green" icon="task_alt">
@@ -353,9 +353,12 @@ function ReviewPhase({ batchMode, onNavigate, onRestart }) {
         }
       />
 
+      {/* min-w-0 on both columns: grid items default to min-width:auto, so wide
+          content (the payload JSON) would otherwise stretch the track and blow
+          out the page instead of scrolling inside its own card. */}
       <div className="grid gap-5 lg:grid-cols-[1.35fr_1fr]">
         {/* ── Left: the record ── */}
-        <div className="space-y-5">
+        <div className="min-w-0 space-y-5">
           <IdentityCard />
           <CategoryCard />
           <AttributesCard a={a} />
@@ -366,7 +369,7 @@ function ReviewPhase({ batchMode, onNavigate, onRestart }) {
         </div>
 
         {/* ── Right: media, coverage, payload ── */}
-        <div className="space-y-5">
+        <div className="min-w-0 space-y-5">
           <MediaCard />
           <CoverageCard />
           <PayloadCard />
@@ -700,7 +703,7 @@ function MediaCard() {
       <CardHead
         icon="photo_library"
         title="Imagery"
-        subtitle="Supplier photo plus generated lifestyle variants"
+        subtitle="Supplier photo plus generated variants"
       />
       <div className="mt-4 grid grid-cols-2 gap-3">
         <figure>
@@ -715,7 +718,7 @@ function MediaCard() {
           {gen === 'done' ? (
             <img
               src={IMG('generated_photo.png')}
-              alt="Generated lifestyle image"
+              alt="Generated product variant"
               className="aspect-[3/4] w-full rounded-sm border border-line object-cover"
             />
           ) : (
@@ -725,7 +728,7 @@ function MediaCard() {
               }`}
             >
               <span className="px-3 text-[12px] text-ink-3">
-                {gen === 'loading' ? 'Generating…' : 'Lifestyle variant'}
+                {gen === 'loading' ? 'Generating…' : 'Variant'}
               </span>
             </div>
           )}
@@ -821,8 +824,10 @@ function PayloadCard() {
             className="text-ink-3 transition-transform group-open:rotate-180"
           />
         </summary>
-        <div className="border-t border-line">
-          <pre className="mono max-h-[420px] overflow-auto bg-[#f8f9fa] px-4 py-3 text-[11.5px] leading-relaxed text-ink-1">
+        {/* Scrolls in both axes within its own box — overscroll-contain stops
+            the wheel from chaining to the page once it bottoms out. */}
+        <div className="max-h-80 overflow-auto overscroll-contain border-t border-line bg-[#f8f9fa]">
+          <pre className="mono w-max px-4 py-3 text-[11.5px] leading-relaxed text-ink-1">
             {JSON.stringify(PRODUCT, null, 2)}
           </pre>
         </div>
