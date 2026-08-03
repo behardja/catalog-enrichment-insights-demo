@@ -1,0 +1,1 @@
+# catalog-enrichment-insights-frontend
